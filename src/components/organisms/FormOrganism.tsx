@@ -2,11 +2,14 @@ import {View, Text, StyleSheet} from 'react-native';
 import React, {useMemo, useState} from 'react';
 import {Button, Input} from '../atoms';
 import Toast from 'react-native-toast-message';
+import useKeyboardHeight from '../../hooks/useKeyboardHeight';
 
 interface Props {
   goToInfoForm: (info: {nom: string; email: string; postal: string}) => void;
 }
 export default function FormOrganism({goToInfoForm}: Props) {
+  const heightKeyboard = useKeyboardHeight();
+
   const [info, setinfo] = useState({
     nom: '',
     email: '',
@@ -66,9 +69,9 @@ export default function FormOrganism({goToInfoForm}: Props) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Fomulaire de Saisie</Text>
-
-      <View style={styles.form}>
+      {/* <Text style={styles.title}>Fomulaire de Saisie</Text> */}
+      {/* 
+      <View style={[styles.form, {paddingBottom: heightKeyboard}]}>
         <Input
           onChange={nom => {
             setinfo({...info, nom});
@@ -106,8 +109,9 @@ export default function FormOrganism({goToInfoForm}: Props) {
           onPress={() => goToInfoForm(info)}
           title="Valider"
           disabled={!valideForm}
+          style={valideForm ? styles.button : undefined}
         />
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -130,5 +134,8 @@ const styles = StyleSheet.create({
   },
   input: {
     marginBottom: 30,
+  },
+  button: {
+    backgroundColor: '#136397',
   },
 });

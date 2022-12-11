@@ -41,11 +41,15 @@ const styles = StyleSheet.create({
   image: {
     height: 200,
     width: 'auto',
+    marginTop: 10,
+    marginBottom: 40,
+    backgroundColor: 'white',
   },
   buttonView: {
     marginHorizontal: 40,
   },
   button: {
     marginBottom: 40,
+    backgroundColor: '#136397',
   },
 });
